@@ -1,0 +1,250 @@
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ///////////// Responsive ///////////// */
+@media screen and (min-width: 320px) {
+  .features-section {
+    bottom: -15px;
+    padding-bottom: 80px;
+  }
+  .about-info {
+    margin-top: 15px;
+  }
+  .about-experience-vid {
+    iframe {
+      width: 323px;
+      height: 281px;
+    }
+  }
+  .carousel-inner {
+    height: 250px;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .features-section__row {
+    justify-content: center;
+  }
+  .features-section {
+    bottom: -15px;
+  }
+  .about-experience-vid {
+    iframe {
+      width: 425px;
+      height: 281px;
+    }
+  }
+  .carousel-inner {
+    height: 300px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .header-nav {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .about__content {
+    flex-direction: row;
+  }
+  .about-info-container {
+    text-align: start;
+  }
+  .about-contact-info {
+    display: flex;
+    text-align: start;
+    img {
+      height: 50%;
+      padding-right: 15px;
+    }
+  }
+  .carousel-inner {
+    height: 465px;
+  }
+
+  .index-banner {
+    background-image: url(./img/banner.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+  }
+  .index-banner__content {
+    width: 50%;
+    margin-top: 50px;
+    text-align: start;
+  }
+  .abouut-section-info__container {
+    @include flex-center;
+  }
+  .about-experience-content {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-experience-vid {
+    iframe {
+      width: 767px;
+      height: 440px;
+    }
+  }
+
+  .about-project-content {
+    display: flex;
+  }
+  .about-project-text {
+    align-items: flex-start;
+    h2 {
+      color: $color-white;
+    }
+  }
+  .d-md-block {
+    margin-bottom: 395px;
+  }
+
+  .footer-nav__nav {
+    @include flex-center;
+    ul {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  .portfolioCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .container-form {
+    width: 600px;
+    margin: 5em auto;
+  }
+
+  .about-contact-info {
+    img {
+      height: 90px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .index-banner__container {
+    max-width: 810px;
+  }
+  .index-banner__content {
+    text-align: start;
+  }
+  .about__section {
+    @include flex-center;
+  }
+  .about-banner__content {
+    max-width: 810px;
+  }
+  .abouut-section-info__img {
+    width: 30%;
+  }
+  .about__content {
+    max-width: 810px;
+  }
+  .about-experience {
+    @include flex-center;
+    flex-direction: row;
+  }
+  .about-experience-vid {
+    iframe {
+      width: 423px;
+      height: 326px;
+    }
+  }
+  .about-project {
+    @include flex-center;
+  }
+  .about-project-content {
+    align-items: center;
+    max-width: 810px;
+  }
+  .portfolio-cards__container {
+    @include flex-center;
+  }
+
+  .portfolioCards {
+    img {
+      width: 100%;
+    }
+  }
+  .features-section {
+    bottom: 100px;
+    padding-bottom: 80px;
+  }
+  .d-md-block {
+    margin-bottom: 395px;
+  }
+  .carousel-indicators {
+    margin-bottom: 120px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .index-banner__container {
+    max-width: 960px;
+  }
+  .about__content {
+    max-width: 960px;
+  }
+  .portfolio-woks {
+    max-width: 960px;
+    grid-auto-rows: 200px;
+  }
+  .portfolio {
+    display: grid;
+    justify-content: center;
+  }
+  .abouut-section-info__img {
+    width: 100%;
+  }
+  .about-experience {
+    padding: 50px 0;
+  }
+  .about-experience-vid {
+    iframe {
+      width: 560px;
+      height: 415px;
+    }
+  }
+
+  .portfolioCards {
+    max-width: 995px;
+  }
+  .service-container {
+    max-width: 995px;
+  }
+  .service-section {
+    @include flex-center;
+    flex-wrap: wrap;
+  }
+
+  .d-md-block {
+    margin-bottom: 395px;
+  }
+
+  .about-contact-info {
+    img {
+      height: 90px;
+    }
+  }
+  .carousel-inner {
+    height: 565px;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .service-section {
+    flex-direction: column;
+  }
+  .services-offer {
+    max-width: 995px;
+  }
+}

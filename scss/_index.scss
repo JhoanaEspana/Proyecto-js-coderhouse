@@ -1,0 +1,218 @@
+@import "variables";
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* carousel */
+header{
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  background-color: $grey-dark;
+  border-bottom: 3px solid $dark;
+}
+
+.carousel-indicators {
+  margin-bottom: 120px;
+}
+.carousel-item {
+  height: 700px;
+  h5 {
+    font-size: 3.25rem;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+/* features-section index */
+.features-section {
+  position: relative;
+  bottom: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.features-section__row {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  padding: 35px 0;
+  background-color: $grey-light;
+  border-radius: 15px;
+}
+
+.features-section__row__items {
+  display: flex;
+  width: 300px;
+  padding: 15px;
+
+  i {
+    padding-right: 10px;
+  }
+  h2 {
+    color: $color-white;
+    font-size: 1.5rem;
+  }
+  p {
+    color: $color-white;
+  }
+}
+
+.icon-row {
+  color: $primary;
+  font-size: 35px;
+}
+
+/* services-card section */
+.service-section {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: auto;
+  text-align: center;
+  padding: 80px 15px;
+  background-color: $grey-light;
+}
+
+.service-container {
+  h3 {
+    color: $primary;
+  }
+  h2 {
+    color: $color-white;
+    font-size: 3rem;
+  }
+}
+
+.services-offer {
+  /*   display: flex;
+  align-items: center;
+  justify-content: center; */
+  @include flex-center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.service-offer-btns .btns {
+  button {
+    width: 180px;
+    height: 50px;
+    margin: 45px 35px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid $primary;
+    border-radius: 5px;
+    background-color: $grey-light;
+    color: $primary;
+  }
+
+  button:hover {
+    background-color: $primary;
+    color: $color-white;
+    cursor: pointer;
+  }
+}
+/* Extends */
+.service-offer-btns .btns-primary {
+  @extend .btns;
+  button {
+    background-color: $primary;
+    color: $color-white;
+  }
+
+  button:hover {
+    background-color: $grey-light;
+    color: $primary;
+    cursor: pointer;
+  }
+}
+
+.service-card {
+  display: flex;
+  flex-wrap: wrap;
+  height: 235px;
+  width: 300px;
+  padding: 0 10px;
+  margin-top: 80px;
+  position: relative;
+
+  animation-timing-function: ease;
+  transition-duration: 0.5s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(0.9);
+  }
+}
+
+.service-info {
+  border: 1px solid $color-white;
+  border-radius: 0 50px 0 0;
+  flex-direction: column;
+  padding: 71px 10px 40px 47px;
+  text-align: left;
+}
+
+.service-info:hover {
+  background-color: $primary;
+}
+
+.service-icon {
+  position: absolute;
+  top: -14%;
+  left: 12%;
+  height: 80px;
+  width: 80px;
+}
+.service-info .sec-title {
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: $color-white;
+}
+.service-info {
+  p {
+    color: $color-white;
+  }
+}
+
+/* portafolio section */
+.portfolio {
+  text-align: center;
+  padding: 50px 15px;
+  h3 {
+    color: $primary;
+  }
+  h2 {
+    color: $color-white;
+    font-size: 2rem;
+  }
+}
+
+.portfolio-woks {
+  display: grid;
+  padding-top: 50px;
+  gap: 5px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 150px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+  }
+
+  img:hover {
+    cursor: pointer;
+    transform: scale(0.9);
+    transition-duration: 0.2s;
+  }
+}

@@ -1,0 +1,41 @@
+@import "variables";
+
+/* portfolio */
+.portfolio-title__container {
+  text-align: center;
+  padding-bottom: 50px;
+  h3 {
+    color: $primary;
+  }
+  h2 {
+    color: $color-white;
+  }
+}
+.portfolioCards {
+  img {
+    width: 100%;
+  }
+}
+.portfolioContent {
+  max-width: 300px;
+  background-color: $color-white;
+  padding: 10px;
+  margin: 15px;
+}
+.portfolio-cards__container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ImageCol {
+  animation-timing-function: ease;
+  transition-duration: 0.5s;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+}
+
+/* end portfolio */

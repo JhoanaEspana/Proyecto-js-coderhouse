@@ -1,0 +1,163 @@
+@import "variables";
+
+@mixin flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@mixin  flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* About css */
+.about-section-info {
+  background-color: $grey-light;
+  padding: 50px 25px;
+}
+.abouut-section-info__text {
+  h2 {
+    color: $primary;
+    margin-bottom: 15px;
+  }
+  p {
+    color: $color-white;
+    text-align: justify;
+  }
+}
+
+.abouut-section-info__img {
+  img {
+    margin-top: 50px;
+  }
+}
+.value-added {
+  padding: 80px 10px;
+  background-color: $grey-light;
+}
+
+.about-info-image {
+  animation-name: abouut-section-info__img;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-duration: 1s;
+  animation-delay: 0.2;
+}
+
+@keyframes abouut-section-info__img {
+  0% {
+    transform: translateX(90px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.about-experience-content {
+  @include flex-column-center;
+  height: auto;
+  padding: 25px;
+}
+.about-experience-card {
+  display: flex;
+  margin-bottom: 35px;
+  img {
+    height: 105px;
+    margin-right: 15px;
+  }
+}
+
+.about-experience-vid {
+  animation-name: about-experience-img;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-duration: 1s;
+  animation-delay: 0.2;
+  padding-right: 170px;
+  img {
+    width: 100%;
+  }
+}
+
+@keyframes about-experience-img {
+  0% {
+    transform: translateX(-90px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.about-experience-text {
+  align-self: center;
+  h3 {
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: $color-white;
+  }
+}
+.about-experience-text .work {
+  padding-top: 5px;
+  color: $color-white;
+}
+.about-experience-text .fecha {
+  color: $primary;
+}
+
+.about-project {
+  background-color: $grey-light;
+  padding: 50px 15px 0 15px;
+  margin-bottom: 50px;
+}
+.about-project-img {
+  img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+}
+
+.about-project-text {
+  @include flex-column;
+  button {
+    width: 180px;
+    height: 50px;
+    margin-top: 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid $primary;
+    border-radius: 5px;
+    background-color: $grey-light;
+    color: $primary;
+  }
+  h2 {
+    color: $color-white;
+    /* text-align: center; */
+  }
+  p {
+    margin-top: 15px;
+    color: $color-white;
+    /* text-align: center; */
+  }
+
+  button:hover {
+    background-color: $primary;
+    color: $color-white;
+    cursor: pointer;
+  }
+}
+
+/* End About css */

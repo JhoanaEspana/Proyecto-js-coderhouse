@@ -1,0 +1,53 @@
+@import "header";
+@import "about-section";
+@import "variables";
+@import "media";
+@import "index";
+@import "about";
+@import "portafolio";
+@import "contact";
+@import "footer";
+@import "page-nav";
+
+//Reset style
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $grey-dark;
+}
+
+html {
+  font-size: 62, 5%;
+}
+
+li {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h5 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+}
+
+p {
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: $color-white;
+
+  &:hover {
+    color: $primary;
+  }
+}

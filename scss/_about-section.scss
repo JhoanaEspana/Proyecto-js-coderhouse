@@ -1,0 +1,125 @@
+
+.about__image {
+  img {
+    animation-name: fade-in-about__image;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-duration: 1s;
+    animation-delay: 0.2;
+  }
+}
+
+/* image about animation */
+@keyframes fade-in-about__image {
+  0% {
+    transform: translateX(-90px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+.about-content-detail {
+  padding: 50px 15px;
+}
+
+.about-info-container {
+  text-align: center;
+  h3 {
+    color: $primary;
+  }
+  h2 {
+    color: $color-white;
+    font-size: 3rem;
+  }
+  p {
+    color: $color-white;
+  }
+}
+
+.about-contact-info {
+  padding-top: 40px;
+  text-align: center;
+  h3 {
+    color: $color-white;
+  }
+  p {
+    color: $color-white;
+  }
+  img{
+    height: 90px;
+  }
+}
+
+
+// Mapa
+$redes: (
+  facebook: #4267B2,
+  twitter: #1DA1F2,
+  github: #000000
+);
+
+@each $redes, $color in $redes {
+  .redes-#{$redes}{
+    background-color: $color;
+    margin-top: 15px;
+    font-size: 45px;
+    margin: 5px;
+    padding: 8px;
+    border-radius: 8px;
+  }
+}
+// Mapa
+
+.about-info {
+  margin-top: -75px;
+  margin-bottom: 85px;
+}
+
+.service-section {
+  position: relative;
+  height: auto;
+  text-align: center;
+  padding: 80px 15px;
+  background-color: $grey-light;
+}
+
+.service-container {
+  h3 {
+    color: $primary;
+  }
+  h2 {
+    color: $color-white;
+    font-size: 3rem;
+  }
+}
+
+.services-offer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.service-card {
+  display: flex;
+  flex-wrap: wrap;
+  height: 235px;
+  width: 300px;
+  padding: 0 10px;
+  margin-top: 80px;
+  position: relative;
+
+  animation-timing-function: ease;
+  transition-duration: 0.5s;
+}
+
+.svg-inline--fa.fa-w-10 {
+  width: 1.03em;
+}
