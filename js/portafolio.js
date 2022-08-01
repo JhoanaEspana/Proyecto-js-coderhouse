@@ -33,21 +33,18 @@ for (let i = 1; i <= agregarDatosPortafolio; i++) {
   const descripcion = prompt(`Ingrese la descripcion portafolio ${i}`);
   const anio = prompt(`Ingrese el año en que se elaboro ${i}`);
   const cliente = prompt(`Ingrese quien fue el cliente ${i}`);
-  
+
   const portafolio = new Portafolio(titulo, descripcion, anio, cliente);
-  
+
   const soft = prompt(`ingrese el software usado: ${i}`);
   portafolio.softwareUsado(soft);
-  
+
   const categoria = prompt(`Ingrese la categoria a la que pertenece ${i}`);
   portafolio.perteneceCategoria(categoria);
-  
-  
+
   portafolio.verPortafolio();
-  console.log(portafolio);  
-
+  console.log(portafolio);
 }
-
 
 /* function buscarPorCat(array, cat) {
   array.filter((item) => {
