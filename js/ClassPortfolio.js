@@ -16,4 +16,6 @@ class Portfolio {
   softwareUsado(nuevoSoftware) {
     this.software.push(nuevoSoftware);
   }
+
+  
 }
