@@ -17,5 +17,9 @@
   "bugs": {
     "url": "https://github.com/JhoanaEspana/Proyecto-js-coderhouse/issues"
   },
-  "homepage": "https://github.com/JhoanaEspana/Proyecto-js-coderhouse#readme"
+  "homepage": "https://github.com/JhoanaEspana/Proyecto-js-coderhouse#readme",
+  "devDependencies": {
+    "node-sass": "^7.0.1",
+    "nodemon": "^2.0.19"
+  }
 }

@@ -8,22 +8,31 @@ agregar.onclick = (e) => {
   let newPort = new Portfolio(titulo.value, descripcion.value, anio.value, cliente.value);
 
   checkCategoria(newPort);
+  checkSoftware(newPort);
   portafolio.push(newPort);
   mostrarItemsDom();
   document.getElementById("form").reset();
 };
 
 function checkCategoria(newPort){
-  let checkBox = document.getElementsByClassName("check-el");
-  for(let check of checkBox){
-    if(check.checked){
-      let cat = check.value;
+  let checkBoxCat = document.getElementsByClassName("check-cat-el");
+  for(let checkcat of checkBoxCat){
+    if(checkcat.checked){
+      let cat = checkcat.value + ' ';
       newPort.perteneceCategoria(cat)
     }
   }
 }
 
-
+function checkSoftware(newPort){
+  let checkBoxSoft = document.getElementsByClassName("check-soft-el");
+  for(let checksof of checkBoxSoft){
+    if(checksof.checked){
+      let soft = checksof.value;
+      newPort.softwareUsado(soft)
+    }
+  }
+}
 
 function mostrarItemsDom(){
   let div = document.getElementById("portfolioContent-el");

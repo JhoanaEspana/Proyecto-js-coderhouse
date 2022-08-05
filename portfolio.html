@@ -118,50 +118,56 @@
             <label for="cliente">Cliente</label>
             <input type="text" id="cliente" placeholder="Cliente">
           </div>
-          <div>
+
+          <div class="d-flex flex-row mb-3">
             <p>Seleccione la categoria</p>
-            <div class="form-check">
-              <label class="form-check-label" for="coding">Ilustración</label>
-              <input class="form-check-input check-el" type="checkbox" id="Ilustracion"  value="Ilustración" checked>
+            <div class="form-check d-flex">
+              <label class="form-check-label" for="ilustracion">Ilustración</label>
+              <input class="form-check-input check-cat-el" type="checkbox" id="Ilustracion"  value="Ilustración" checked>
             </div>
-            <div class="form-check">
-              <label class="form-check-label" for="music">Editarial</label>
-              <input class="form-check-input check-el" type="checkbox" id="Editarial"  value="Editarial">
+            <div class="form-check d-flex">
+              <label class="form-check-label" for="editorial">Editarial</label>
+              <input class="form-check-input check-cat-el" type="checkbox" id="Editarial"  value="Editarial">
             </div>
-            <div class="form-check">
-              <label class="form-check-label" for="music">Animación</label>
-              <input class="form-check-input check-el" type="checkbox" id="Animacion"  value="Animación">
+            <div class="form-check d-flex">
+              <label class="form-check-label" for="animacion">Animación</label>
+              <input class="form-check-input check-cat-el" type="checkbox" id="Animacion"  value="Animación">
             </div>
-            <div class="form-check">
-              <label class="form-check-label" for="music">Modelado-3D</label>
-              <input class="form-check-input check-el"  type="checkbox" id="Modelado"  value="Modelado-3D">
+            <div class="form-check d-flex">
+              <label class="form-check-label" for="modelado">Modelado-3D</label>
+              <input class="form-check-input check-cat-el"  type="checkbox" id="Modelado"  value="Modelado-3D">
             </div>
           </div>
-          <div>
-            <label for="software">Software</label>
-            <input type="text" id="software" placeholder="Software">
+ 
+          <div class="d-flex flex-row mb-3">
+            <p>Seleccione el software usado</p>
+            <div class="form-check d-flex">
+              <label class="form-check-label" for="illustrator">Illustrator</label>
+              <input class="form-check-input check-soft-el" type="checkbox" id="Illustrator"  value="Illustrator" checked>
+            </div>
+            <div class="form-check d-flex">
+              <label class="form-check-label" for="indesign">InDesign</label>
+              <input class="form-check-input check-soft-el" type="checkbox" id="InDesign"  value="InDesign">
+            </div>
+            <div class="form-check d-flex">
+              <label class="form-check-label" for="aftereffects">After-Effects</label>
+              <input class="form-check-input check-soft-el" type="checkbox" id="After-Effects"  value="After-Effects">
+            </div>
+            <div class="form-check d-flex">
+              <label class="form-check-label" for="blender">Blender-3D</label>
+              <input class="form-check-input check-soft-el"  type="checkbox" id="Blender-3D"  value="Modelado-3D">
+            </div>
           </div>
+
           <div class="mt-4">
             <button type="submit" id="agregar" class="btn btn-primary">Agregar</button>
           </div>
-
-
         </form>
       </div>
 
       <div class="portfolio-cards__container" >
         <div id="portfolioContent-el" class="portfolioCards">
- <!--          <div id="portfolioContent-el" class="portfolioContent">
-            <div id="portfolioContent-el" class="ImageCol">
-              <img src="img/slide1.jpg" />
-                <h3 id="titulo-el">Titulo</h3>
-                <p id="port-p-el">Descripcion</p>
-                <p id="anio-p-el">Año</p>
-                <p id="anio-p-el">Cliente</p>
-                <p id="anio-p-el">Categoria</p>
-                <p id="anio-p-el">Software</p> 
-            </div>
-          </div> -->
+
         </div>
       </div>
     </section>
