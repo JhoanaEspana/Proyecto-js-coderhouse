@@ -101,13 +101,13 @@
 
       <div class="col-lg-8 container">
         <form id="form">
-          <div>
-            <label for="titulo">Titulo</label>
-            <input type="text" id="titulo" placeholder="Titulo del proyecto">
+          <div class="formulario__grupo" id="grupo__titulo">
+            <label for="titulo" class="formulario__label" id="formulario__titulo">Titulo</label>
+            <input type="text" class="formulario__input" id="titulo" placeholder="Titulo del proyecto - Mínimo 20 caracteres" name="titulo">
           </div>
           <div>
             <label for="descripcion">Descripcion</label>
-            <textarea type="textarea" rows="4" cols="50" class="form-control" id="descripcion"
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="4" cols="50" 
               placeholder="Descripcion del proyecto"></textarea>
           </div>
           <div>
@@ -116,26 +116,26 @@
           </div>
           <div>
             <label for="cliente">Cliente</label>
-            <input type="text" id="cliente" placeholder="Cliente">
+            <input type="text" id="cliente" placeholder="Cliente" name="cliente">
           </div>
 
           <div class="d-flex flex-row mb-3">
             <p>Seleccione la categoria</p>
             <div class="form-check d-flex">
               <label class="form-check-label" for="ilustracion">Ilustración</label>
-              <input class="form-check-input check-cat-el" type="checkbox" id="Ilustracion"  value="Ilustración" checked>
+              <input class="form-check-input check-cat-el" type="checkbox" id="Ilustracion"  value="Ilustración" name="categoria" checked>
             </div>
             <div class="form-check d-flex">
               <label class="form-check-label" for="editorial">Editarial</label>
-              <input class="form-check-input check-cat-el" type="checkbox" id="Editarial"  value="Editarial">
+              <input class="form-check-input check-cat-el" type="checkbox" id="Editarial"  value="Editarial" name="categoria">
             </div>
             <div class="form-check d-flex">
               <label class="form-check-label" for="animacion">Animación</label>
-              <input class="form-check-input check-cat-el" type="checkbox" id="Animacion"  value="Animación">
+              <input class="form-check-input check-cat-el" type="checkbox" id="Animacion"  value="Animación" name="categoria">
             </div>
             <div class="form-check d-flex">
               <label class="form-check-label" for="modelado">Modelado-3D</label>
-              <input class="form-check-input check-cat-el"  type="checkbox" id="Modelado"  value="Modelado-3D">
+              <input class="form-check-input check-cat-el"  type="checkbox" id="Modelado"  value="Modelado-3D" name="categoria">
             </div>
           </div>
 
@@ -143,19 +143,19 @@
             <p>Seleccione el software usado</p>
             <div class="form-check d-flex">
               <label class="form-check-label" for="illustrator">Illustrator</label>
-              <input class="form-check-input check-soft-el" type="checkbox" id="Illustrator"  value="Illustrator" checked>
+              <input class="form-check-input check-soft-el" type="checkbox" id="Illustrator"  value="Illustrator" name="software" checked>
             </div>
             <div class="form-check d-flex">
               <label class="form-check-label" for="indesign">InDesign</label>
-              <input class="form-check-input check-soft-el" type="checkbox" id="InDesign"  value="InDesign">
+              <input class="form-check-input check-soft-el" type="checkbox" id="InDesign"  value="InDesign" name="software">
             </div>
             <div class="form-check d-flex">
               <label class="form-check-label" for="aftereffects">After-Effects</label>
-              <input class="form-check-input check-soft-el" type="checkbox" id="After-Effects"  value="After-Effects">
+              <input class="form-check-input check-soft-el" type="checkbox" id="After-Effects"  value="After-Effects" name="software">
             </div>
             <div class="form-check d-flex">
               <label class="form-check-label" for="blender">Blender-3D</label>
-              <input class="form-check-input check-soft-el"  type="checkbox" id="Blender-3D"  value="Modelado-3D">
+              <input class="form-check-input check-soft-el"  type="checkbox" id="Blender-3D"  value="Modelado-3D" name="software">
             </div>
           </div>
 
@@ -165,11 +165,25 @@
         </form>
       </div>
 
+      <!-- <input id="buscar" type="text" placeholder="Buscar..."> -->
       <div class="portfolio-cards__container" >
         <div id="portfolioContent-el" class="portfolioCards">
-
         </div>
       </div>
+      <section class="container-section">
+        <div class="section-resumen">
+          <div class="col-lg-8 container section-resumen__button">
+            <button type="submit" id="imprimir" class="btn btn-primary">Mostrar resumen</button>
+            <div id="sectiontext" class="section-resumen__text"></div>
+          </div>
+        </div>
+        <div class="section-resumen-categoria">
+          <div class="col-lg-8 container mt-4 section-resumen-categoria__button ">
+            <button type="submit" id="imprimir-categoria" class="btn btn-primary">Mostrar categorias</button>
+            <div id="sectiontext-categoria" class="section-resumen-categoria__text"></div>
+          </div>
+        </div>
+      </section>
     </section>
   </main>
   <!-- main potfolio -->
@@ -199,6 +213,7 @@
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
     crossorigin="anonymous"></script>
 
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- funcionalidad de portafolio -->
   <script src="js/ClassPortfolio.js"></script>
   <script src="js/portfolio.js"></script>

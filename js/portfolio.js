@@ -1,50 +1,99 @@
-
 let portafolio = [];
 
 const agregar = document.getElementById("agregar");
+const campoTitulo = document.getElementById("titulo");
 
-agregar.onclick = (e) => {
+agregar.addEventListener("click", (e) => {
   e.preventDefault();
 
-  let newPort = new Portfolio(titulo.value, descripcion.value, anio.value, cliente.value);
+  if (campoTitulo.value.length == 0) {
+    // usando SweetAlert
+    swal(
+      "Hey, ¿y el título?",
+      "Por favor incluye un título al proyecto",
+      "error"
+    );
+  } else {
+    let newPort = new Portfolio(
+      titulo.value,
+      descripcion.value,
+      anio.value,
+      cliente.value
+    );
 
-  checkCategoria(newPort);
-  checkSoftware(newPort);
-  portafolio.push(newPort);
-  mostrarItemsDom();
-  
-  localStorage.setItem("portafolio", JSON.stringify(portafolio));
+    checkCategoria(newPort);
+    checkSoftware(newPort);
+    portafolio.push(newPort);
+    mostrarItemsDom();
 
-  document.getElementById("form").reset();
+    localStorage.setItem("portafolio", JSON.stringify(portafolio));
+    document.getElementById("form").reset();
+  }
+});
+
+/////////////// Validando campo titulo ////////////////
+
+const expresiones = {
+  titulo: /^[a-zA-ZÀ-ÿ0-9\s]{4,15}$/,
+  descripcion: /^[a-zA-ZÀ-ÿ0-9\s]{4,30}$/,
+  cliente: /^[a-zA-ZÀ-ÿ\s]{4,15}$/,
 };
 
-function checkCategoria(newPort){
+const inputs = document.querySelectorAll("#form input");
+
+const validarFormulario = (e) => {
+  switch (e.target.name) {
+    case "titulo":
+      if (expresiones.titulo.test(e.target.value)) {
+        document.getElementById("grupo__titulo").classList.remove("formulario__grupo-incorrecto");
+        document.getElementById("grupo__titulo").classList.add("formulario__grupo-correcto");
+      } else {
+        document.getElementById("grupo__titulo").classList.add("formulario__grupo-incorrecto");
+      }
+    break;
+  }
+};
+
+inputs.forEach((input) => {
+  input.addEventListener("keyup", validarFormulario);
+  input.addEventListener("blur", validarFormulario);
+});
+
+///////////////////////////////
+
+function checkCategoria(newPort) {
   let checkBoxCat = document.getElementsByClassName("check-cat-el");
-  for(let checkcat of checkBoxCat){
-    if(checkcat.checked){
-      let cat = checkcat.value + ' ';
-      newPort.perteneceCategoria(cat)
-    }
+  for (let checkcat of checkBoxCat) {
+    /* if (checkcat.checked) {
+      let cat = checkcat.value + " ";
+      newPort.perteneceCategoria(cat);
+    } */
+
+    // Operador lógico AND
+    let cat = checkcat.value + " ";
+    checkcat.checked && newPort.perteneceCategoria(cat);
   }
 }
 
-function checkSoftware(newPort){
+function checkSoftware(newPort) {
   let checkBoxSoft = document.getElementsByClassName("check-soft-el");
-  for(let checksof of checkBoxSoft){
-    if(checksof.checked){
+  for (let checksof of checkBoxSoft) {
+    /*if (checksof.checked) {
       let soft = checksof.value;
-      newPort.softwareUsado(soft)
-    }
+      newPort.softwareUsado(soft);
+    } */
+
+    // Operador lógico AND
+    let soft = checksof.value + " ";
+    checksof.checked && newPort.softwareUsado(soft);
   }
 }
 
-function mostrarItemsDom(){
-  
+function mostrarItemsDom() {
   let div = document.getElementById("portfolioContent-el");
-  div.innerHTML = '';
-  
-  for(const item of portafolio){
+  div.innerHTML = " ";
 
+  for (const item of portafolio) {
     let contenedor = document.createElement("div");
     contenedor.classList.add("portfolioContent");
 
@@ -56,13 +105,56 @@ function mostrarItemsDom(){
                             <p class="portfolioContent_cliente">Cliente: ${item.cliente}</p>
                             <p>Categoria: ${item.categoria}</p>
                             <p>Software: ${item.software}</p>
-                            `
+                            `;
     div.appendChild(contenedor);
   }
 }
 
-portafolio = JSON.parse(localStorage.getItem("portafolio"));
-if(portafolio === null){
-  portafolio = [];
-} 
+// Operador lógico OR
+portafolio = JSON.parse(localStorage.getItem("portafolio")) || [];
+/* if (portafolio === null) {
+  portafolio = [];   
+} */
 mostrarItemsDom();
+
+
+// Desestructuración
+
+const imprimir = document.getElementById("imprimir");
+const textoResumen = document.getElementById("sectiontext")
+
+imprimir.addEventListener('click', (e) => {
+  e.preventDefault();
+  imprimirResumen();
+})
+
+function imprimirResumen() {
+  textoResumen.innerHTML = " ";
+  portafolio.forEach(({ titulo, anio, cliente }) => {
+    
+    textoResumen.innerHTML += `<p>${titulo}</p>
+                              <p>${anio}</p>
+                              <p>${cliente}</p>` 
+  });
+}
+
+// Spread
+const imprimirCategoria = document.getElementById("imprimir-categoria");
+const textoResumenCategoria = document.getElementById("sectiontext-categoria")
+
+imprimirCategoria.addEventListener('click', (e) => {
+  e.preventDefault();
+  imprimirCategorias();
+})
+
+function imprimirCategorias(){
+  textoResumenCategoria.innerHTML = " ";
+
+  for (const cate of portafolio) {
+  
+    const itemCategoria = cate.categoria
+    const categorias = [...itemCategoria];
+
+    textoResumenCategoria.innerHTML += `<p>${categorias}</p>`
+  }
+}

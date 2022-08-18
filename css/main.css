@@ -618,6 +618,30 @@ header {
     cursor: pointer;
     transform: scale(1.1); }
 
+/* ----- -----  Estilos para Validacion ----- ----- */
+/* .formulario__grupo-correcto  {
+	color: #1ed12d;
+	opacity: 1;
+} */
+.formulario__grupo-correcto .formulario__label {
+  color: #1ed12d; }
+
+.formulario__grupo-correcto .formulario__input {
+  border: 3px solid #1ed12d; }
+
+.formulario__grupo-incorrecto .formulario__label {
+  color: #bb2929; }
+
+/* .formulario__grupo-incorrecto {
+	color: #bb2929;
+	opacity: 1;
+} */
+.formulario__grupo-incorrecto .formulario__input {
+  border: 3px solid #bb2929; }
+
+.container-section p {
+  color: white; }
+
 /* end portfolio */
 /* contact */
 .contact-container__Text {
