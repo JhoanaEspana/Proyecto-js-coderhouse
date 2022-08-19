@@ -2,6 +2,7 @@ let portafolio = [];
 
 const agregar = document.getElementById("agregar");
 const campoTitulo = document.getElementById("titulo");
+const campoCliente = document.getElementById("cliente")
 
 agregar.addEventListener("click", (e) => {
   e.preventDefault();
@@ -29,7 +30,24 @@ agregar.addEventListener("click", (e) => {
     localStorage.setItem("portafolio", JSON.stringify(portafolio));
     document.getElementById("form").reset();
   }
+
+// Operador ternario
+  const error = swal(
+    "Error!",
+    "Por favor agrega el nombre del cliente",
+    "error"
+  );
+
+  const ready = swal(
+    "Hecho!",
+    "Muchas gracias por agregar el titulo del cliente",
+    "success"
+  );
+
+  campoCliente.value.length == 0 ? error : ready
+//////////////////////////////////////
 });
+
 
 /////////////// Validando campo titulo ////////////////
 
@@ -119,7 +137,6 @@ mostrarItemsDom();
 
 
 // Desestructuración
-
 const imprimir = document.getElementById("imprimir");
 const textoResumen = document.getElementById("sectiontext")
 
@@ -132,9 +149,9 @@ function imprimirResumen() {
   textoResumen.innerHTML = " ";
   portafolio.forEach(({ titulo, anio, cliente }) => {
     
-    textoResumen.innerHTML += `<p>${titulo}</p>
-                              <p>${anio}</p>
-                              <p>${cliente}</p>` 
+    textoResumen.innerHTML += `<p>Titulo: ${titulo}</p>
+                              <p>Año: ${anio}</p>
+                              <p>Cliente: ${cliente}</p>` 
   });
 }
 
@@ -149,12 +166,14 @@ imprimirCategoria.addEventListener('click', (e) => {
 
 function imprimirCategorias(){
   textoResumenCategoria.innerHTML = " ";
+    
+    for (const cate of portafolio) {
+      
+      const itemCategoria = cate.categoria
+      const categorias = [...itemCategoria];
 
-  for (const cate of portafolio) {
-  
-    const itemCategoria = cate.categoria
-    const categorias = [...itemCategoria];
-
-    textoResumenCategoria.innerHTML += `<p>${categorias}</p>`
+      textoResumenCategoria.innerHTML += `<p>${categorias}</p>`
+      
+    }
   }
-}
+
