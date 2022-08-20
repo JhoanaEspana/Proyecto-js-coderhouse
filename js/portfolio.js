@@ -2,7 +2,7 @@ let portafolio = [];
 
 const agregar = document.getElementById("agregar");
 const campoTitulo = document.getElementById("titulo");
-const campoCliente = document.getElementById("cliente")
+const campoCliente = document.getElementById("cliente");
 
 agregar.addEventListener("click", (e) => {
   e.preventDefault();
@@ -31,7 +31,7 @@ agregar.addEventListener("click", (e) => {
     document.getElementById("form").reset();
   }
 
-// Operador ternario
+  // Operador ternario
   const error = swal(
     "Error!",
     "Por favor agrega el nombre del cliente",
@@ -44,10 +44,9 @@ agregar.addEventListener("click", (e) => {
     "success"
   );
 
-  campoCliente.value.length == 0 ? error : ready
-//////////////////////////////////////
+  campoCliente.value.length == 0 ? error : ready;
+  //////////////////////////////////////
 });
-
 
 /////////////// Validando campo titulo ////////////////
 
@@ -63,12 +62,18 @@ const validarFormulario = (e) => {
   switch (e.target.name) {
     case "titulo":
       if (expresiones.titulo.test(e.target.value)) {
-        document.getElementById("grupo__titulo").classList.remove("formulario__grupo-incorrecto");
-        document.getElementById("grupo__titulo").classList.add("formulario__grupo-correcto");
+        document
+          .getElementById("grupo__titulo")
+          .classList.remove("formulario__grupo-incorrecto");
+        document
+          .getElementById("grupo__titulo")
+          .classList.add("formulario__grupo-correcto");
       } else {
-        document.getElementById("grupo__titulo").classList.add("formulario__grupo-incorrecto");
+        document
+          .getElementById("grupo__titulo")
+          .classList.add("formulario__grupo-incorrecto");
       }
-    break;
+      break;
   }
 };
 
@@ -117,12 +122,18 @@ function mostrarItemsDom() {
 
     contenedor.innerHTML += `
                             <img src="img/slide1.jpg"/>
-                            <h3 class="portfolioContent_titulo">${item.titulo}</h3>
-                            <p class="portfolioContent_descripcion">${item.descripcion}</p>
+                            <h3 class="portfolioContent_titulo">${
+                              item.titulo
+                            }</h3>
+                            <p class="portfolioContent_descripcion">${
+                              item.descripcion
+                            }</p>
                             <p class="portfolioContent_anio">${item.anio}</p>
-                            <p class="portfolioContent_cliente">Cliente: ${item.cliente}</p>
-                            <p>Categoria: ${item.categoria}</p>
-                            <p>Software: ${item.software}</p>
+                            <p class="portfolioContent_cliente">Cliente: ${
+                              item.cliente
+                            }</p>
+                            <p>Categoria: ${item.categoria.join(" ")}</p>
+                            <p>Software: ${item.software.join(" ")}</p>
                             `;
     div.appendChild(contenedor);
   }
@@ -135,45 +146,40 @@ portafolio = JSON.parse(localStorage.getItem("portafolio")) || [];
 } */
 mostrarItemsDom();
 
-
 // Desestructuración
 const imprimir = document.getElementById("imprimir");
-const textoResumen = document.getElementById("sectiontext")
+const textoResumen = document.getElementById("sectiontext");
 
-imprimir.addEventListener('click', (e) => {
+imprimir.addEventListener("click", (e) => {
   e.preventDefault();
   imprimirResumen();
-})
+});
 
 function imprimirResumen() {
   textoResumen.innerHTML = " ";
   portafolio.forEach(({ titulo, anio, cliente }) => {
-    
     textoResumen.innerHTML += `<p>Titulo: ${titulo}</p>
                               <p>Año: ${anio}</p>
-                              <p>Cliente: ${cliente}</p>` 
+                              <p>Cliente: ${cliente}</p>`;
   });
 }
 
 // Spread
 const imprimirCategoria = document.getElementById("imprimir-categoria");
-const textoResumenCategoria = document.getElementById("sectiontext-categoria")
+const textoResumenCategoria = document.getElementById("sectiontext-categoria");
 
-imprimirCategoria.addEventListener('click', (e) => {
+imprimirCategoria.addEventListener("click", (e) => {
   e.preventDefault();
   imprimirCategorias();
-})
+});
 
-function imprimirCategorias(){
+function imprimirCategorias() {
   textoResumenCategoria.innerHTML = " ";
-    
-    for (const cate of portafolio) {
-      
-      const itemCategoria = cate.categoria
-      const categorias = [...itemCategoria];
 
-      textoResumenCategoria.innerHTML += `<p>${categorias}</p>`
-      
-    }
+  for (const cate of portafolio) {
+    const itemCategoria = cate.categoria;
+    const categorias = [...itemCategoria];
+
+    textoResumenCategoria.innerHTML += `<p>${categorias}</p>`;
   }
-
+}
