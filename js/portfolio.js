@@ -122,16 +122,10 @@ function mostrarItemsDom() {
 
     contenedor.innerHTML += `
                             <img src="img/slide1.jpg"/>
-                            <h3 class="portfolioContent_titulo">${
-                              item.titulo
-                            }</h3>
-                            <p class="portfolioContent_descripcion">${
-                              item.descripcion
-                            }</p>
+                            <h3 class="portfolioContent_titulo">${item.titulo}</h3>
+                            <p class="portfolioContent_descripcion">${item.descripcion}</p>
                             <p class="portfolioContent_anio">${item.anio}</p>
-                            <p class="portfolioContent_cliente">Cliente: ${
-                              item.cliente
-                            }</p>
+                            <p class="portfolioContent_cliente">Cliente: ${item.cliente}</p>
                             <p>Categoria: ${item.categoria.join(" ")}</p>
                             <p>Software: ${item.software.join(" ")}</p>
                             `;
@@ -186,7 +180,9 @@ function imprimirCategorias() {
 
 
 // API
-const dataList = document.querySelector('#portafolio-api')
+const dataList = document.querySelector('#content-api')
+const urlImg = 
+
 
 window.addEventListener('DOMContentLoaded', async () => {
   const data = await cargarPortafolio();
@@ -198,7 +194,15 @@ const cargarPortafolio = async () => {
   return await respuesta.json()
 }
 
-const createItemsPortafolio = items => items.map(item => `<h1 class="portfolioContent_titulo">${item.titulo}<h1>`).join(' ')
+const createItemsPortafolio = items => items.map(item => `<div class="portfolioContent">
+                                                          <img src=${item.imagen}/>
+                                                          <h3 class="portfolioContent_titulo">${item.titulo}</h3>
+                                                          <p class="portfolioContent_descripcion">${item.descripcion}</p>
+                                                          <p class="portfolioContent_anio">${item.fecha}</p>
+                                                          <p class="portfolioContent_cliente">Cliente: ${item.cliente}</p>
+                                                          <p>Categoria: ${item.categoria}</p>
+                                                          <p>Software: ${item.software}</p>
+                                                          </div>`).join(' ')
 
 function renderPortafolio(items){
   const itemsString = createItemsPortafolio(items)
