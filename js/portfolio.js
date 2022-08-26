@@ -195,7 +195,7 @@ const cargarPortafolio = async () => {
 }
 
 const createItemsPortafolio = items => items.map(item => `<div class="portfolioContent">
-                                                          <img src=${item.imagen}/>
+                                                          <img width="280" src=${item.imagen}>
                                                           <h3 class="portfolioContent_titulo">${item.titulo}</h3>
                                                           <p class="portfolioContent_descripcion">${item.descripcion}</p>
                                                           <p class="portfolioContent_anio">${item.fecha}</p>
