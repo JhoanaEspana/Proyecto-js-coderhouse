@@ -183,3 +183,24 @@ function imprimirCategorias() {
     textoResumenCategoria.innerHTML += `<p>${categorias}</p>`;
   }
 }
+
+
+// API
+const dataList = document.querySelector('#portafolio-api')
+
+window.addEventListener('DOMContentLoaded', async () => {
+  const data = await cargarPortafolio();
+  renderPortafolio(data);
+})
+
+const cargarPortafolio = async () => {
+  const respuesta = await fetch('https://technoar.co/wp-json/jhoespana/v1/portafolio');
+  return await respuesta.json()
+}
+
+const createItemsPortafolio = items => items.map(item => `<h1 class="portfolioContent_titulo">${item.titulo}<h1>`).join(' ')
+
+function renderPortafolio(items){
+  const itemsString = createItemsPortafolio(items)
+  dataList.innerHTML = itemsString;
+}
