@@ -1,10 +1,10 @@
 let portafolio = [];
 
-const agregar = document.getElementById("agregar");
-const campoTitulo = document.getElementById("titulo");
-const campoCliente = document.getElementById("cliente");
+const agregar = document.getElementById('agregar');
+const campoTitulo = document.getElementById('titulo');
+const campoCliente = document.getElementById('cliente');
 
-agregar.addEventListener("click", (e) => {
+agregar.addEventListener('click', (e) => {
   e.preventDefault();
 
   if (campoTitulo.value.length == 0) {
@@ -27,8 +27,8 @@ agregar.addEventListener("click", (e) => {
     portafolio.push(newPort);
     mostrarItemsDom();
 
-    localStorage.setItem("portafolio", JSON.stringify(portafolio));
-    document.getElementById("form").reset();
+    localStorage.setItem('portafolio', JSON.stringify(portafolio));
+    document.getElementById('form').reset();
   }
 
   // Operador ternario
@@ -56,36 +56,36 @@ const expresiones = {
   cliente: /^[a-zA-ZÀ-ÿ\s]{4,15}$/,
 };
 
-const inputs = document.querySelectorAll("#form input");
+const inputs = document.querySelectorAll('#form input');
 
 const validarFormulario = (e) => {
   switch (e.target.name) {
     case "titulo":
       if (expresiones.titulo.test(e.target.value)) {
         document
-          .getElementById("grupo__titulo")
-          .classList.remove("formulario__grupo-incorrecto");
+          .getElementById('grupo__titulo')
+          .classList.remove('formulario__grupo-incorrecto');
         document
-          .getElementById("grupo__titulo")
-          .classList.add("formulario__grupo-correcto");
+          .getElementById('grupo__titulo')
+          .classList.add('formulario__grupo-correcto');
       } else {
         document
-          .getElementById("grupo__titulo")
-          .classList.add("formulario__grupo-incorrecto");
+          .getElementById('grupo__titulo')
+          .classList.add('formulario__grupo-incorrecto');
       }
       break;
   }
 };
 
 inputs.forEach((input) => {
-  input.addEventListener("keyup", validarFormulario);
-  input.addEventListener("blur", validarFormulario);
+  input.addEventListener('keyup', validarFormulario);
+  input.addEventListener('blur', validarFormulario);
 });
 
 ///////////////////////////////
 
 function checkCategoria(newPort) {
-  let checkBoxCat = document.getElementsByClassName("check-cat-el");
+  let checkBoxCat = document.getElementsByClassName('check-cat-el');
   for (let checkcat of checkBoxCat) {
     /* if (checkcat.checked) {
       let cat = checkcat.value + " ";
@@ -99,7 +99,7 @@ function checkCategoria(newPort) {
 }
 
 function checkSoftware(newPort) {
-  let checkBoxSoft = document.getElementsByClassName("check-soft-el");
+  let checkBoxSoft = document.getElementsByClassName('check-soft-el');
   for (let checksof of checkBoxSoft) {
     /*if (checksof.checked) {
       let soft = checksof.value;
@@ -113,12 +113,12 @@ function checkSoftware(newPort) {
 }
 
 function mostrarItemsDom() {
-  let div = document.getElementById("portfolioContent-el");
+  let div = document.getElementById('portfolioContent-el');
   div.innerHTML = " ";
 
   for (const item of portafolio) {
-    let contenedor = document.createElement("div");
-    contenedor.classList.add("portfolioContent");
+    let contenedor = document.createElement('div');
+    contenedor.classList.add('portfolioContent');
 
     contenedor.innerHTML += `
                             <img src="img/slide1.jpg"/>
@@ -134,17 +134,17 @@ function mostrarItemsDom() {
 }
 
 // Operador lógico OR
-portafolio = JSON.parse(localStorage.getItem("portafolio")) || [];
+portafolio = JSON.parse(localStorage.getItem('portafolio')) || [];
 /* if (portafolio === null) {
   portafolio = [];   
 } */
 mostrarItemsDom();
 
 // Desestructuración
-const imprimir = document.getElementById("imprimir");
-const textoResumen = document.getElementById("sectiontext");
+const imprimir = document.getElementById('imprimir');
+const textoResumen = document.getElementById('sectiontext');
 
-imprimir.addEventListener("click", (e) => {
+imprimir.addEventListener('click', (e) => {
   e.preventDefault();
   imprimirResumen();
 });
@@ -159,10 +159,10 @@ function imprimirResumen() {
 }
 
 // Spread
-const imprimirCategoria = document.getElementById("imprimir-categoria");
-const textoResumenCategoria = document.getElementById("sectiontext-categoria");
+const imprimirCategoria = document.getElementById('imprimir-categoria');
+const textoResumenCategoria = document.getElementById('sectiontext-categoria');
 
-imprimirCategoria.addEventListener("click", (e) => {
+imprimirCategoria.addEventListener('click', (e) => {
   e.preventDefault();
   imprimirCategorias();
 });
@@ -180,9 +180,7 @@ function imprimirCategorias() {
 
 
 // API
-const dataList = document.querySelector('#content-api')
-const urlImg = 
-
+const dataList = document.querySelector('#content-api');
 
 window.addEventListener('DOMContentLoaded', async () => {
   const data = await cargarPortafolio();
@@ -191,18 +189,20 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 const cargarPortafolio = async () => {
   const respuesta = await fetch('https://technoar.co/wp-json/jhoespana/v1/portafolio');
-  return await respuesta.json()
+  return await respuesta.json();
 }
 
-const createItemsPortafolio = items => items.map(item => `<div class="portfolioContent">
-                                                          <img width="280" src=${item.imagen}>
-                                                          <h3 class="portfolioContent_titulo">${item.titulo}</h3>
-                                                          <p class="portfolioContent_descripcion">${item.descripcion}</p>
-                                                          <p class="portfolioContent_anio">${item.fecha}</p>
-                                                          <p class="portfolioContent_cliente">Cliente: ${item.cliente}</p>
-                                                          <p>Categoria: ${item.categoria}</p>
-                                                          <p>Software: ${item.software}</p>
-                                                          </div>`).join(' ')
+const createItemsPortafolio = (items) => {
+  return items.map(item => `<div class="portfolioContent">
+                          <img width="280" src=${item.imagen}>
+                          <h3 class="portfolioContent_titulo">${item.titulo}</h3>
+                          <p class="portfolioContent_descripcion">${item.descripcion}</p>
+                          <p class="portfolioContent_anio">${item.fecha}</p>
+                          <p class="portfolioContent_cliente">Cliente: ${item.cliente}</p>
+                          <p>Categoria: ${item.categoria}</p>
+                          <p>Software: ${item.software}</p>
+                          </div>`).join(' ')
+}
 
 function renderPortafolio(items){
   const itemsString = createItemsPortafolio(items)
