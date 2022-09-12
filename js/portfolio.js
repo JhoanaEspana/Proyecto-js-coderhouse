@@ -201,7 +201,7 @@ const createItemsPortafolio = (items) => {
                           <p class="portfolioContent_cliente">Cliente: ${item.cliente}</p>
                           <p>Categoria: ${item.categoria}</p>
                           <p>Software: ${item.software}</p>
-                          </div>`).join(' ')
+                          </div>`)
 }
 
 function renderPortafolio(items){
